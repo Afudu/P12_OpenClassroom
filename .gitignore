@@ -11,6 +11,7 @@ __pycache__/
 *.jpeg
 *.zip
 Notes/
+epic_events/crm/migrations/
 # Translations
 *.mo
 *.pot
