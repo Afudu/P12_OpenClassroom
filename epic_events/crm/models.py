@@ -127,7 +127,7 @@ class Contract(models.Model):
                       ('OPEN', 'Open')]
     client = models.ForeignKey(Client,
                                on_delete=models.CASCADE,
-                               related_name="contracts")
+                               related_name="contract_assigned_to")
     amount = models.CharField(max_length=50)
     date_created = models.DateTimeField(auto_now_add=True)
     date_signed = models.DateField(blank=True, null=True)
@@ -135,7 +135,7 @@ class Contract(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, blank=True, default='Open')
 
     def __str__(self):
-        return f"Contract for {self.client.name}"
+        return f"Contract for {self.client}"
 
 
 class Event(models.Model):
