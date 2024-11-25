@@ -3,14 +3,14 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 from crm.models import User, Client, Contract, Event
 from crm.serializers import UserSerializer, ClientSerializer, ContractSerializer, EventSerializer
-from crm.permissions import IsManagement, IsClientSalesContactOrReadOnly, IsContractSalesContactOrReadOnly, \
+from crm.permissions import IsClientSalesContactOrReadOnly, IsContractSalesContactOrReadOnly, \
     IsEventSalesOrSupportContact
 from crm.filters import ClientFilter, ContractFilter, EventFilter
 
 
 class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
-    permission_classes = [IsManagement]
+    permission_classes = []
 
     def get_queryset(self):
         """
