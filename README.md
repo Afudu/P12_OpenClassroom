@@ -18,7 +18,7 @@ The application requires authentication and authorized access for all operations
 for effective monitoring and troubleshooting.
 
 Business Process:
-The users are divided in three groups: Management, Sales and Support teams.
+The users are divided in three teams: Management, Sales and Support.
 1. Sales team works to convince potential clients. 
 2. Converted clients sign a contract to put on their event.
 3. Once a client signs a contract, sales contact creates the event.
@@ -33,11 +33,12 @@ The users are divided in three groups: Management, Sales and Support teams.
 
 * Sales:
  - Can access all clients, contracts, and events.
- - Can manage assigned clients, contracts, and events.
+ - Can create new clients, contracts, and events.
+ - Can manage only assigned clients, their contracts and events.
 
 * Support:
  - Read-only for all clients, contracts, and events.
- - Can Edit assigned events.
+ - Can manage only assigned events.
 
 
 ### API Endpoints 
@@ -119,11 +120,17 @@ The following commands rely on the knowledge of how to use the terminal (Unix, m
 
 **5 - Securely upgrade pip**
 
-   * Unix/macOS/Windows
+   * Windows
 
       ```bash
      py -m pip install --upgrade pip
      ```
+   * Unix/macOS/
+
+      ```bash
+     python -m pip install --upgrade pip
+     ```
+
 
 **6 - Install all dependencies**
 
@@ -138,24 +145,23 @@ The database used is a Postgres database.
 **1 - Ensure PostgreSQL is installed on your system**
     You can download the latest version for your system from : https://www.postgresql.org/download/
 
-**2 - Create the Database in PostgreSQL**
+**2 - Create the database and set the permissions**
+ 
+  - Open your PostgreSQL shell.
 
-  - Open the ```PgAdmin4``` application: You should find a database named postgres, 
-right-click it and then choose the ```Query Tool```.
-
-    - Execute this command to create th database named ```epic_events_db```:
+  - Execute this command to create the database named ```epic_events_db```:
 
       ```bash
       CREATE DATABASE epic_events_db;
       ```
 
-  - Set the permissions on the database by clearing the Query Tool and running the following commands:
+  - Set the permissions on the database by running the following commands:
 
       ```bash
       CREATE USER epic_event_user WITH PASSWORD '123456';
       GRANT ALL PRIVILEGES ON DATABASE epic_events_db TO epic_event_user;
       ```
-    * Note: the password set for the database isn't secure, it is only for testing purpose..
+    * Note: the password set for the database isn't secure, it is only for testing purpose.
 
 ## Running the application
 
@@ -190,8 +196,12 @@ right-click it and then choose the ```Query Tool```.
 ## Testing the application
 After the server has started, you can create users and test the API.
 
-* Login :  http://localhost:8000/crm/login
+* Navigate to http://localhost:8000/crm/users/ then create a Management user. 
+The Management user will be able to log in with email and password to the Django admin site:
+http://localhost:8000/admin/
 
+The login endpoint does not require a token:
+* Login :  http://localhost:8000/crm/login/
 
 All other endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) 
 or any other tool like cURL or Django REST framework’s localhost server.
