@@ -79,7 +79,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         if self.role == 'MANAGEMENT':
+            self.is_active = True
             self.is_admin = True
+            self.is_staff = True
         if self.password is not None:
             self.set_password(self.password)
 
