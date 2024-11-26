@@ -7,15 +7,16 @@
 **Date:** 10/06/2024
 
 ## Abstract
-This project consists of developing for Epic Events, an event management firm, a secure customer relationship management software (CRM), 
-which tracks all its clients and events, in replacement of their outdated software which had been hacked
+This project consists of developing for Epic Events, an event management firm, 
+a secure customer relationship management software (CRM), which tracks all its clients and events, 
+in replacement of their outdated software which had been hacked.
 
 The application is built with the Django REST framework & ORM (with a PostgreSQL database), 
 and delivers a set of secure API endpoints using the to support CRUD (create, read, update, and delete) 
 operations on the various CRM objects.
 
-In adhering to the security requirements, authentication and authorized access are required for all operations, and logging enabled 
-for effective monitoring and troubleshooting.
+In adhering to the security requirements, authentication and authorized access are required for all operations, 
+and logging is enabled for effective monitoring and troubleshooting.
 
 Main Business Process:
 The users are divided in three teams: Management, Sales and Support.
