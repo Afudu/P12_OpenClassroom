@@ -18,7 +18,7 @@ operations on the various CRM objects.
 In adhering to the security requirements, authentication and authorized access are required for all operations, 
 and logging is enabled for effective monitoring and troubleshooting.
 
-Main Business Process:
+### Main Business Process
 The users are divided in three teams: Management, Sales and Support.
 1. Sales team works to convince potential clients. 
 2. Converted clients sign a contract to put on their event.
