@@ -139,17 +139,19 @@ The following commands rely on the knowledge of how to use the terminal (Unix, m
     ```bash
     pip install -r requirements.txt
     ```
-## Set up the database
+**7 - Set up the Postgres database**
 The database used is a Postgres database.
+Ensure PostgreSQL is installed on your system.
+You can download the latest version for your system from : https://www.postgresql.org/download/
 
-**1 - Ensure PostgreSQL is installed on your system**
-    You can download the latest version for your system from : https://www.postgresql.org/download/
-
-**2 - Create the database and set the permissions**
- 
   - Open your PostgreSQL shell.
-
-  - Execute this command to create the database named ```epic_events_db```:
+     * Windows : Open ````SQL Shell```` separately from the installation command line with the activated environment,
+      and connect to the initial database set up ```postgres``` using the password set during the installation.
+     * Unix/macOS: Access psql from the same terminal with the activated environment:  
+        ````bash
+       sudo -u postgres psql
+       ````
+  - In the PostgreSQL shell, execute this command to create the database named ```epic_events_db```:
 
       ```bash
       CREATE DATABASE epic_events_db;
@@ -163,29 +165,31 @@ The database used is a Postgres database.
       ```
     * Note: the password set for the database isn't secure, it is only for testing purpose.
 
-## Running the application
+  - Return to the installation command line with the activated environment.
+     * Windows : switch to the installation command line.
+     * Unix/macOS: type ```exit```.  
 
-**Move to the folder**
+**8 - Move to the project folder**
 
   * Unix/macOS/Windows
 
       ```bash
       cd epic_events
       ```
-**Apply Database Migrations**
+**9 - Apply Database Migrations**
 
   * Unix/macOS/Windows
 
     ```bash
-      python manage.py makemigrations
+      python manage.py makemigrations crm
     ```
     then 
     
     ```bash
-      python manage.py migrate
+      python manage.py migrate crm
     ```
 
-**Start the server**
+**10 - Start the server**
 
   * Unix/macOS/Windows
 
@@ -194,19 +198,27 @@ The database used is a Postgres database.
     ```
 
 ## Testing the application
-After the server has started, you can create users and test the API.
+After the server has started, to access the root view of the API, navigate to:
 
-The Management users will be able to log in with email and password to the Django admin site:
-http://localhost:8000/admin/
+Api Root: http://127.0.0.1:8000/crm/
 
-The login endpoint does not require a token:
+For testing purpose, the users endpoint is accessible without authentication, and allows to create users.
+Create a user with management role from:
+* Users: http://127.0.0.1:8000/crm/users/
+
+The Management user created will be able to log in with email and password to the Django admin site, 
+with full access to all models:
+* Django Admin: http://localhost:8000/admin/
+
+The clients, contracts and events endpoints require an access token to work. 
+An access token can be obtained from the login endpoint, with a valid authentication:
 * Login :  http://localhost:8000/crm/login/
 
-All other endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) 
+All endpoints can be tested using [Postman](https://www.postman.com/) 
 or any other tool like cURL or Django REST framework’s localhost server.
 
-All required API Endpoints have been tested, documented, 
-and [published](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN) on Postman.
+All required API Endpoints have been tested using [Postman](https://www.postman.com/) , documented, 
+and [published](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
 
 # PEP 8 adherence
 
