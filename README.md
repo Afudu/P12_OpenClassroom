@@ -214,9 +214,6 @@ The clients, contracts and events endpoints require an access token to work.
 An access token can be obtained from the login endpoint, with a valid authentication:
 * Login :  http://localhost:8000/crm/login/
 
-All endpoints can be tested using [Postman](https://www.postman.com/) 
-or any other tool like cURL or Django REST framework’s localhost server.
-
 All required API Endpoints have been tested using [Postman](https://www.postman.com/) , documented, 
 and [published](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
 
