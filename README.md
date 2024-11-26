@@ -26,7 +26,7 @@ The users are divided in three teams: Management, Sales and Support.
 4. The Management team assigns a support team member to the new event.
 5. The assigned member from the support team manages the event until its completion.
 
-*Permissions:*
+### Permissions
 
 * Management:
     - Full access (CRUD for all models, and user management).
