@@ -196,8 +196,7 @@ The database used is a Postgres database.
 ## Testing the application
 After the server has started, you can create users and test the API.
 
-* Navigate to http://localhost:8000/crm/users/ then create a Management user. 
-The Management user will be able to log in with email and password to the Django admin site:
+The Management users will be able to log in with email and password to the Django admin site:
 http://localhost:8000/admin/
 
 The login endpoint does not require a token:
