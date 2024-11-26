@@ -215,7 +215,7 @@ The clients, contracts and events endpoints require an access token to work.
 An access token can be obtained from the login endpoint, with a valid authentication:
 * Login :  http://localhost:8000/crm/login/
 
-All required API Endpoints have been tested using [Postman](https://www.postman.com/).
+All required API Endpoints have been tested using Postman.
 The tests and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
 
 # PEP 8 adherence
