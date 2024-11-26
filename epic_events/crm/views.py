@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 from crm.models import User, Client, Contract, Event
 from crm.serializers import UserSerializer, ClientSerializer, ContractSerializer, EventSerializer
-from crm.permissions import IsClientSalesContactOrReadOnly, IsContractSalesContactOrReadOnly, \
+from crm.permissions import IsManagement, IsClientSalesContactOrReadOnly, IsContractSalesContactOrReadOnly, \
     IsEventSalesOrSupportContact
 from crm.filters import ClientFilter, ContractFilter, EventFilter
 
