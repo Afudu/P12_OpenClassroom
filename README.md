@@ -12,7 +12,7 @@ a secure customer relationship management software (CRM), which tracks all its c
 in replacement of their outdated software which had been hacked.
 
 The application is built with the Django REST framework & ORM (with a PostgreSQL database), 
-and delivers a set of secure API endpoints using the to support CRUD (create, read, update, and delete) 
+and delivers a set of secure API endpoints to support CRUD (create, read, update, and delete) 
 operations on the various CRM objects.
 
 In adhering to the security requirements, authentication and authorized access are required for all operations, 
