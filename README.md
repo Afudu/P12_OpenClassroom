@@ -29,17 +29,17 @@ The users are divided in three teams: Management, Sales and Support.
 *Permissions:*
 
 * Management:
-  - Full access (CRUD for all models, and user management).
-  - Access to the Django admin site.
+    - Full access (CRUD for all models, and user management).
+    - Access to the Django admin site.
 
 * Sales:
- - Can access all clients, contracts, and events.
- - Can create new clients, contracts, and events.
- - Can manage only assigned clients, their contracts and events.
+    - Can access all clients, contracts, and events.
+    - Can create new clients, contracts, and events.
+    - Can manage only assigned clients, their contracts and events.
 
 * Support:
- - Read-only for all clients, contracts, and events.
- - Can manage only assigned events.
+    - Read-only for all clients, contracts, and events.
+    - Can manage only assigned events.
 
 
 ### API Endpoints 
