@@ -12,16 +12,16 @@ app_name = "crm"
 default_router = DefaultRouter()
 
 # To generate:/users/ and /users/{pk}/
-default_router.register(r'users', UserViewSet, basename='users')
+default_router.register(r'users', UserViewSet, basename='user')
 
 # To generate /clients/ and /clients/{pk}/
-default_router.register(r'clients', ClientViewSet, basename='clients')
+default_router.register(r'clients', ClientViewSet, basename='client')
 
 # To generate /contracts/ and /contracts/{pk}/
-default_router.register(r'contracts', ContractViewSet, basename='contracts')
+default_router.register(r'contracts', ContractViewSet, basename='contract')
 
 # To generate /events/ and /events/{pk}/
-default_router.register(r'events', EventViewSet, basename='events')
+default_router.register(r'events', EventViewSet, basename='event')
 
 # # Wire up our API using automatic URL routing.
 urlpatterns = [
