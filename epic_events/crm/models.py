@@ -23,10 +23,9 @@ class CustomUserManager(BaseUserManager):
         user.is_superuser = True
         user.is_staff = True
         user.is_admin = True
+        user.role = 'MANAGEMENT'
 
-        # user.save()
         user.save(using=self._db)
-
         return user
 
 
@@ -60,7 +59,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # users log in using their email addresses
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'role']
 
     objects = CustomUserManager()
 
@@ -79,7 +78,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         if self.role == 'MANAGEMENT':
-            self.is_active = True
             self.is_admin = True
             self.is_staff = True
         if self.password is not None:
