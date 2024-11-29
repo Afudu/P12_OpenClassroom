@@ -186,9 +186,7 @@ You can download the latest version for your system from : https://www.postgresq
 
 The following command will create a Management user that will be able to log into the Django Admin site.
 
-Make a note of the credentials. 
-
-This account will be used for testing.
+Make a note of the credentials. This account will be used for testing.
 
   * Unix/macOS/Windows
 
