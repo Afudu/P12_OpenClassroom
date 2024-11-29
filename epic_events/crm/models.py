@@ -19,13 +19,12 @@ class CustomUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password=None, **extra_fields):
-        user = self.create_user(email=email, password=password, **extra_fields)
-        user.is_superuser = True
-        user.is_staff = True
-        user.is_admin = True
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_admin', True)
+        extra_fields.setdefault('role', 'ADMIN')
 
-        user.save(using=self._db)
-        return user
+        return self.create_user(email, password, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -37,7 +36,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     ROLE_CHOICES = [('SALES', 'Sales'),
                     ('SUPPORT', 'Support'),
-                    ('MANAGEMENT', 'Management')
+                    ('MANAGEMENT', 'Management'),
+                    ('ADMIN', 'Admin')
                     ]
 
     username = None
@@ -58,7 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # users log in using their email addresses
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'role']
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     objects = CustomUserManager()
 
@@ -79,8 +79,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         if self.role == 'MANAGEMENT':
             self.is_admin = True
             self.is_staff = True
-        if self.password is not None:
-            self.set_password(self.password)
 
         return super(User, self).save(*args, **kwargs)
 
