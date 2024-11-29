@@ -22,7 +22,6 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_admin', True)
-        extra_fields.setdefault('role', 'ADMIN')
 
         return self.create_user(email, password, **extra_fields)
 
@@ -37,7 +36,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = [('SALES', 'Sales'),
                     ('SUPPORT', 'Support'),
                     ('MANAGEMENT', 'Management'),
-                    ('ADMIN', 'Admin')
                     ]
 
     username = None
