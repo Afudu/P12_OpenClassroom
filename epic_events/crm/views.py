@@ -10,14 +10,15 @@ from crm.serializers import (
 from crm.permissions import (
     IsClientSalesContactOrReadOnly,
     IsContractSalesContactOrReadOnly,
-    IsEventSalesOrSupportContact
+    IsEventSalesOrSupportContact,
+    IsManagement
 )
 from crm.filters import ClientFilter, ContractFilter, EventFilter
 
 
 class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated, IsManagement]
 
     def get_queryset(self):
         """
