@@ -182,19 +182,15 @@ You can download the latest version for your system from : https://www.postgresq
     ```bash
     python manage.py migrate crm
     ```
-**10 - Create a Superuser**
-Create a Superuser that will be able to log into the Django Admin site.
+**10 - Create a new Management user**
+Create a Management user that will be able to log into the Django Admin site.
 Make a note of the credentials. This account will be used for testing.
 
   * Unix/macOS/Windows
 
     ```bash
-    python manage.py createsuperuser
+    python manage.py create_management_user
     ```
-    then 
-    
-    ```bash
-    python manage.py migrate crm
 
 **11 - Start the server**
 
@@ -205,9 +201,8 @@ Make a note of the credentials. This account will be used for testing.
     ```
 
 ## Testing the application
-After the server has started, log in to the Django admin site, with the superuser account created above.
-
-You can then create a Management user who will also be able to log into the Admin portal and create Sales and Support users.
+After the server has started, log in to the Django admin site, with the Management user account created above.
+The Management user will also be able to create Sales and Support users from the Django Admin interface or via Postman.
 
 * Django Admin: http://localhost:8000/admin/
 
