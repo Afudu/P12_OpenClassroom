@@ -182,7 +182,8 @@ You can download the latest version for your system from : https://www.postgresq
     ```bash
     python manage.py migrate crm
     ```
-**10 - Create a new Management user**
+**10 - Create a Management user**
+
 Create a Management user that will be able to log into the Django Admin site.
 Make a note of the credentials. This account will be used for testing.
 
