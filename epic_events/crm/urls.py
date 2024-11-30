@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-app_name = "crm"
+# app_name = "crm"
 
 # # DefaultRouter for the API Root
 default_router = DefaultRouter()
@@ -28,5 +28,5 @@ urlpatterns = [
     path('', include(default_router.urls)),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
