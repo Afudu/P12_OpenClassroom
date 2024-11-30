@@ -15,7 +15,7 @@ The application is built with the Django REST framework & ORM (with a PostgreSQL
 and delivers a set of secure API endpoints to support CRUD (create, read, update, and delete) 
 operations on the various CRM objects.
 
-In adhering to the security requirements, authentication and authorized access are required for all events operations, 
+In adhering to the security requirements, authentication and authorized access are required for all operations, 
 and logging is enabled for effective monitoring and troubleshooting.
 
 ### Main Business Process
