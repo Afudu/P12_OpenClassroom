@@ -1,229 +1,166 @@
-# OpenClassrooms - Python Developer Path
+# Develop a Secure Back-End Architecture Using Django ORM
 
-**Project 12:** Develop a Secure Back-End Architecture Using Django ORM
+**OpenClassrooms - Python Developer Path:** Project 12
 
 **Student:** Abdoul Baki Seydou
 
-**Date:** 10/06/2024
+**Date:** 10/06/2024 
 
-## Abstract
-This project consists of developing for Epic Events, an event management firm, 
-a secure customer relationship management software (CRM), which tracks all its clients and events, 
+## Table of Contents
+1. [Summary](#summary)
+2. [CRM Workflow](#crm-workflow)
+3. [Features](#features)
+4. [API Endpoints](#api-endpoints)
+5. [Technologies Used](#technologies-used)
+6. [Project Tasks](#project-tasks)
+7. [Local Development](#local-development)
+   - [Prerequisites](#prerequisites)
+   - [Setup on macOS/Linux](#setup-on-macoslinux)
+   - [Setup on Windows](#setup-on-windows)
+   - [Running the Application](#running-the-application)
+   - [Linting and Testing](#linting-and-testing)
+   - [Database Management](#database-management)
+   - [Admin Panel](#admin-panel)
+
+## Summary
+This project consists of developing for **Epic Events**, an event management firm, 
+a secure customer relationship management(CRM) software for better clients and events management, 
 in replacement of their outdated software which had been hacked.
 
-The application is built with the Django REST framework & ORM (with a PostgreSQL database), 
-and delivers a set of secure API endpoints to support CRUD (create, read, update, and delete) 
-operations on the various CRM objects.
+## CRM Workflow
+The CRM facilitates collaboration across three user groups:
+1. **Sales Team**: Engages potential clients, finalizes contracts and create events.
+2. **Management Team**: Assigns support member to events and oversees operations.
+3. **Support Team**: Manages event until its completion.
 
-In adhering to the security requirements, authentication and authorized access are required for all operations, 
-and logging is enabled for effective monitoring and troubleshooting.
+## Features
+- **Authentication & Authorization**: Role-based secure access.
+- **API Endpoints**: Secure, and support CRUD (create, read, update, and delete).
+- **Logging**: Logging enabled to ensure effective monitoring and troubleshooting.
 
-### Main Business Process
-The users are divided in three teams: Management, Sales and Support.
-1. Sales team works to convince potential clients. 
-2. Converted clients sign a contract to put on their event.
-3. Once a client signs a contract, sales contact creates the event.
-4. The Management team assigns a support team member to the new event.
-5. The assigned member from the support team manages the event until its completion.
+## API Endpoints 
 
-### Permissions
+| Endpoint            | Description           | Method | Permissions                                |
+|---------------------|-----------------------|--------|--------------------------------------------|
+| crm/login/	         | Log in to the api     | POST   | Management, Sales, Support                 |
+  | crm/clients/        | Create a Client       | POST   | Management, Sales                          |
+  | crm/clients/        | Get all Clients       | GET    | Management, Sales, Support                 |             
+  | crm/clients/{id}/   | Get a single Client   | GET    | Management, Sales, Support                 |                
+  | crm/clients/{id}/   | Update a Client       | PUT    | Management, Sales_contact                  |            
+  | crm/clients/{id}/   | Delete a Client       | DELETE | Management, Sales_contact                  |  
+  | crm/contracts/      | Create a Contract     | POST   | Management, Sales                          |          
+  | crm/contracts/      | Get all Contracts     | GET    | Management, Sales, Support                 |        
+  | crm/contracts/{id}/ | Get a single Contract | GET    | Management, Sales, Support                 |         
+  | crm/contracts/{id}/ | Update a Contract     | PUT    | Management, Sales_contact                  |                
+  | crm/contracts/{id}/ | Delete a Contract     | DELETE | Management, Sales_contact                  |    
+  | crm/events/         | Create an Event       | POST   | Management, Sales                          |      
+  | crm/events/         | Get all Events        | GET    | Management, Sales, Support                 |     
+  | crm/events/{id}/    | Get a single Event    | GET    | Management, Sales, Support                 |
+  | crm/events/{id}/    | Update an Event       | PUT    | Management, Sales_contact, Support_contact |          
+  | crm/events/{id}/    | Delete an Event       | Delete | Management, Sales_contact, Support_contact |
 
-* Management:
-    - Full access (CRUD for all models, and user management).
-    - Access to the Django admin site.
+## Technologies Used
+- **Programming Language:** Python  
+- **Framework:** Django REST framework 
+- **Database:** PostgreSQL
 
-* Sales:
-    - Can access all clients, contracts, and events.
-    - Can create new clients, contracts, and events.
-    - Can manage only assigned clients, their contracts and events.
+## Project Tasks
+1. Design Django models covering important business areas.
+2. Design an Entity Relationship Diagram.
+3. Create Serializers for data validation and transformation.
+4. Create Views to handle API logic.
+5. Define URL routes for the API.
+6. Create Permissions and apply to the Views to ensure secure access.
 
-* Support:
-    - Read-only for all clients, contracts, and events.
-    - Can manage only assigned events.
+## Local Development
 
+### Prerequisites
+- PostgreSQL installed.
+- Python 3.6 or higher.
 
-### API Endpoints 
+### Setup on macOS/Linux
 
-| Endpoint            | Description           | Method |
-|---------------------|-----------------------|--------|
-| crm/login/	         | Log in to the api     | POST   | 
-  | crm/clients/        | Create a Client       | POST   |  
-  | crm/clients/        | Get all Clients       | GET    |                   
-  | crm/clients/{id}/   | Get a single Client   | GET    |                      
-  | crm/clients/{id}/   | Update a Client       | PUT    |                   
-  | crm/clients/{id}/   | Delete a Client       | DELETE |          
-  | crm/contracts/      | Create a Contract     | POST   |                   
-  | crm/contracts/      | Get all Contracts     | GET    |                   
-  | crm/contracts/{id}/ | Get a single Contract | GET    |                   
-  | crm/contracts/{id}/ | Update a Contract     | PUT    |                            
-  | crm/contracts/{id}/ | Delete a Contract     | DELETE |                   
-  | crm/events/         | Create an Event       | POST   |                   
-  | crm/events/         | Get all Events        | GET    |                   
-  | crm/events/{id}/    | Get a single Event    | GET    | 
-  | crm/events/{id}/    | Update an Event       | PUT    |                   
-  | crm/events/{id}/    | Delete an Event       | Delete |
+1. **Clone the Repository**
+   ```bash
+   cd /path/to/put/project/in
+   git clone https://github.com/Afudu/P12_OpenClassroom.git
 
-## Requirement
+2. **Move to the folder**
+   ```bash
+   cd P12_OpenClassroom
 
-Latest version of Python must be installed.
+3. **Set Up Virtual Environment**
+   ```bash
+   python -m venv venv
+   
+4. **Activate Environment**
+   ```bash
+   source venv/bin/activate 
 
-You can download the latest version for your system from : https://www.python.org/downloads/
+5. **Securely upgrade pip**
+   ```bash
+   python -m pip install --upgrade pip 
 
-## Installation
+6. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   
+7. **To deactivate Environment**
+   ```bash
+   deactivate
 
-The following commands rely on the knowledge of how to use the terminal (Unix, macOS) or the command line (Windows).
+### Setup on Windows
 
-**1 - Get the code**
+1. Follow the steps above.
 
-   * Unix/macOS/Windows
+2. To activate the environment:
+   ```bash
+   .\venv\Scripts\Activate
 
-       ```bash
-       git clone https://github.com/Afudu/P12_OpenClassroom.git
-       ```
+### Running the application
 
-**2 - Move to the folder**
+1. **Start the server**
+   ```bash
+   cd epic_events; python manage.py runserver
+   
+2. **Access in the browser**
+   To verify the site is running, navigate to:
+   ```bash
+   http://localhost:8000/crm/
 
-   * Unix/macOS/Windows
+### Database Management
 
-       ```bash
-       cd P12_OpenClassroom
-       ```  
+1. **Open PostgreSQL shell:**
+   ```bash
+   sudo -u postgres psql
 
-**3 - Create a virtual environment**
-
-  * Unix/macOS
-
-    ```bash
-    python -m venv pythonenv
-     ```
-  * Windows
-
-    ```bash
-    python -m venv pythonenv
-    ```
+2. **Create the database:**
+   ```sql
+   CREATE DATABASE epic_events_db;
   
-    * Note: you can create the virtual environment in another folder, then move to that folder to run the command above.
-    * Example: in the above command, our virtual environment created is called pythonenv - you can give a different name.
+3. **Set the permissions:**
+   ```sql
+   CREATE USER epic_event_user WITH PASSWORD '123456';
+   GRANT ALL PRIVILEGES ON DATABASE epic_events_db TO epic_event_user;
+  
+4. **Apply Database Migrations:**
+   ```bash
+   Apply Database Migrations; python manage.py migrate crm
+  
+5. **Create a Management user:**
+   ```bash
+   python manage.py create_management_user
 
-**4 - Activate the virtual environment created**
+### Admin Panel
+1. Navigate to http://localhost:8000/admin
+2. Use the management user created above to log in.
 
-  * Unix/macOS
+### Linting and Testing
 
-    ```bash
-    source pythonenv/bin/activate
-    ```
+- **Run Linting**
+  ```bash
+  flake8
 
-  * Windows
-
-    ```bash
-    pythonenv\Scripts\activate
-    ```
-
-**5 - Securely upgrade pip**
-
-   * Windows/Unix/macOS/
-
-     ```bash
-     python -m pip install --upgrade pip
-     ```
-
-**6 - Install all dependencies**
-
-  * Unix/macOS/Windows
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-**7 - Set up the Postgres database**
-The database used is a Postgres database.
-Ensure PostgreSQL is installed on your system.
-You can download the latest version for your system from : https://www.postgresql.org/download/
-
-  - Open your PostgreSQL shell.
-     * Windows : Open ````SQL Shell```` separately from the installation command line with the activated environment,
-      and then connect to the initial database named```postgres``` using the password set during the installation.
-     * Unix/macOS: Access psql from the same terminal with the activated environment:  
-        ````bash
-       sudo -u postgres psql
-       ````
-  - In the PostgreSQL shell, execute this command to create the database named ```epic_events_db```:
-
-      ```bash
-      CREATE DATABASE epic_events_db;
-      ```
-  - Set the permissions on the database by running the following commands:
-
-      ```bash
-      CREATE USER epic_event_user WITH PASSWORD '123456';
-      GRANT ALL PRIVILEGES ON DATABASE epic_events_db TO epic_event_user;
-      ```
-    * Note: the password set for the database isn't secure, it is only for testing purpose.
-
-  - Return to the installation command line with the activated environment.
-     * Windows : switch to the installation command line.
-     * Unix/macOS: type ```exit```.  
-
-**8 - Move to the project folder**
-
-  * Unix/macOS/Windows
-
-      ```bash
-      cd epic_events
-      ```
-**9 - Apply Database Migrations**
-
-  * Unix/macOS/Windows
-
-    ```bash
-    python manage.py makemigrations crm
-    ```
-    then 
-    
-    ```bash
-    python manage.py migrate crm
-    ```
-**10 - Create a Management user**
-
-The following command will create a Management user that will be able to log into the Django Admin site.
-
-Make a note of the credentials. This account will be used for testing.
-
-  * Unix/macOS/Windows
-
-    ```bash
-    python manage.py create_management_user
-    ```
-
-**11 - Start the server**
-
-  * Unix/macOS/Windows
-
-    ```bash
-    python manage.py runserver
-    ```
-
-## Testing the application
-After the server has started, log in to the Django admin site, with the Management user account created above.
-The Management user will also be able to create Sales and Support users from the Django Admin interface or via Postman.
-
-* Django Admin: http://localhost:8000/admin/
-
-The clients, contracts and events endpoints require an access token to work. 
-An access token can be obtained from the login endpoint, with a valid authentication:
-* Login :  http://localhost:8000/crm/login/
-
-All required API Endpoints have been tested using [Postman](https://www.postman.com/).
-The tests and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
-
-# PEP 8 adherence
-
-The folder ```flake_report``` in the repository contains an HTML report generated by flake8-html which displays no errors.
-A new report can be generated by running the following command: 
-
-  * Unix/macOS/Windows
-
-      ```bash
-      flake8
-       ```
-
-The file ```setup.cfg``` in the root of the repository contains the settings used to generate the report.
+- **Tests**
+  All other endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) or any other tool like cURL or Django REST framework’s localhost server.
+  The tests performed and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
