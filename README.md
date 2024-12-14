@@ -162,5 +162,6 @@ The CRM facilitates collaboration across three user groups:
   flake8
 
 - **Tests**
+
   All other endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) or any other tool like cURL or Django REST framework’s localhost server.
   The tests performed and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
