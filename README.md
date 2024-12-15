@@ -17,10 +17,10 @@
    - [Prerequisites](#prerequisites)
    - [Setup on macOS/Linux](#setup-on-macoslinux)
    - [Setup on Windows](#setup-on-windows)
-   - [Running the Application](#running-the-application)
-   - [Linting and Testing](#linting-and-testing)
    - [Database Management](#database-management)
+   - [Running the Application](#running-the-application)
    - [Admin Panel](#admin-panel)
+   - [Linting and Testing](#linting-and-testing)
 
 ## Summary
 This project consists of developing for **Epic Events**, an event management firm, 
@@ -145,7 +145,7 @@ The CRM facilitates collaboration across three user groups:
   
 4. **Apply Database Migrations:**
    ```bash
-   Apply Database Migrations; python manage.py migrate crm
+   python manage.py makemigrations crm && python manage.py migrate crm
   
 5. **Create a Management user:**
    ```bash
