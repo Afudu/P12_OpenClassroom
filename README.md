@@ -22,7 +22,6 @@
    - [Running the Application](#running-the-application)
    - [Admin Panel](#admin-panel)
    - [Linting and Testing](#linting-and-testing)
-   - [Screenshots](#screenshots)
 
 ## Summary
 This project consists of developing for **Epic Events**, an event management firm, 
@@ -178,10 +177,13 @@ The CRM facilitates collaboration across three user groups:
   
   The tests performed and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
 
-### Screenshots
+[//]: # (### Screenshots)
 
-![Admin Login](screenshots/login_page.png "Admin Login")
+[//]: # ()
+[//]: # (![Admin Login]&#40;screenshots/login_page.png "Admin Login"&#41;)
 
-![API Root](screenshots/api_root.png "API Root")
+[//]: # ()
+[//]: # (![API Root]&#40;screenshots/api_root.png "API Root"&#41;)
 
-![Create User](screenshots/create_user.png "Create User by Admin")
+[//]: # ()
+[//]: # (![Create User]&#40;screenshots/create_user.png "Create User by Admin"&#41;)
