@@ -10,10 +10,11 @@
 1. [Summary](#summary)
 2. [CRM Workflow](#crm-workflow)
 3. [Features](#features)
-4. [API Endpoints](#api-endpoints)
-5. [Technologies Used](#technologies-used)
-6. [Project Tasks](#project-tasks)
-7. [Local Development](#local-development)
+4. [Technologies Used](#technologies-used)
+5. [Project Tasks](#project-tasks)
+6. [Entity Relationship Diagram](#entity-relationship-diagram)
+7. [API Endpoints](#api-endpoints)
+8. [Local Development](#local-development)
    - [Prerequisites](#prerequisites)
    - [Setup on macOS/Linux](#setup-on-macoslinux)
    - [Setup on Windows](#setup-on-windows)
@@ -21,6 +22,7 @@
    - [Running the Application](#running-the-application)
    - [Admin Panel](#admin-panel)
    - [Linting and Testing](#linting-and-testing)
+   - [Screenshots](#screenshots)
 
 ## Summary
 This project consists of developing for **Epic Events**, an event management firm, 
@@ -37,6 +39,23 @@ The CRM facilitates collaboration across three user groups:
 - **Authentication & Authorization**: Role-based secure access.
 - **API Endpoints**: Secure, and support CRUD (create, read, update, and delete).
 - **Logging**: Logging enabled to ensure effective monitoring and troubleshooting.
+
+## Technologies Used
+- **Programming Language:** Python  
+- **Framework:** Django REST framework 
+- **Database:** PostgreSQL
+
+## Project Tasks
+1. Design Django models covering important business areas.
+2. Design an Entity Relationship Diagram.
+3. Create Serializers for data validation and transformation.
+4. Create Views to handle API logic.
+5. Define URL routes for the API.
+6. Create Permissions and apply to the Views to ensure secure access.
+
+## Entity Relationship Diagram
+
+![ERD](screenshots/ASeydou_P12_ERD.png "ERD")
 
 ## API Endpoints 
 
@@ -59,18 +78,6 @@ The CRM facilitates collaboration across three user groups:
   | crm/events/{id}/    | Update an Event       | PUT    | Management, Sales_contact, Support_contact |          
   | crm/events/{id}/    | Delete an Event       | Delete | Management, Sales_contact, Support_contact |
 
-## Technologies Used
-- **Programming Language:** Python  
-- **Framework:** Django REST framework 
-- **Database:** PostgreSQL
-
-## Project Tasks
-1. Design Django models covering important business areas.
-2. Design an Entity Relationship Diagram.
-3. Create Serializers for data validation and transformation.
-4. Create Views to handle API logic.
-5. Define URL routes for the API.
-6. Create Permissions and apply to the Views to ensure secure access.
 
 ## Local Development
 
@@ -170,3 +177,11 @@ The CRM facilitates collaboration across three user groups:
   All endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) or any other tool like cURL or Django REST framework’s localhost server.
   
   The tests performed and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
+
+### Screenshots
+
+![Admin Login](screenshots/login_page.png "Admin Login")
+
+![API Root](screenshots/api_root.png "API Root")
+
+![Create User](screenshots/create_user.png "Create User by Admin")
