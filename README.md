@@ -24,8 +24,8 @@
 
 ## Summary
 This project consists of developing for **Epic Events**, an event management firm, 
-a secure customer relationship management(CRM) software for better clients and events management, 
-in replacement of their outdated software which had been hacked.
+a secure customer relationship management(CRM) software for better clients and events management. 
+The new software will replace their outdated system, which had been hacked.
 
 ## CRM Workflow
 The CRM facilitates collaboration across three user groups:
@@ -124,7 +124,9 @@ The CRM facilitates collaboration across three user groups:
    cd epic_events; python manage.py runserver
    
 2. **Access in the browser**
+
    To verify the site is running, navigate to:
+
    ```bash
    http://localhost:8000/crm/
 
@@ -158,11 +160,13 @@ The CRM facilitates collaboration across three user groups:
 ### Linting and Testing
 
 - **Run Linting**
+  The codebase is fully linted and free of errors.
+
   ```bash
   flake8
 
 - **Tests**
 
-  All other endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) or any other tool like cURL or Django REST framework’s localhost server.
+  All endpoints require an access token to work, and can be tested using [Postman](https://www.postman.com/) or any other tool like cURL or Django REST framework’s localhost server.
   
   The tests performed and their results can be viewed from this [link](https://documenter.getpostman.com/view/25994788/2sAYBUDsAN).
